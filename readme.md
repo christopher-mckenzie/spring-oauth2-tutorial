@@ -1,5 +1,6 @@
 ## oauth2 tutorial
 
+* left off at WebSecurityConfigurer
 * the following dependencies are needed for oauth2 in spring boot 1.5.10
     * ```groovy
         buildscript {
@@ -49,7 +50,11 @@
         @EnableOAuth2Sso
         class OauthTutorialApplication {}
       ```
-
+* client auth in sample is from facebook developers
+    * simply an oauth2 login and once logged in will be redirected to apps home page (index.html)
+    * in oauth2 terms this app is a client and uses auth code grant to obtain access tokens from facebook (the authorization server)
+        * we then use the access token to get personal info from facebook
+    * if redirects are successful a set-cookie header is visible with JSESSIONID by default
 ## tutorial
 
 * [documentation](https://spring.io/guides/tutorials/spring-boot-oauth2/)
