@@ -49,3 +49,7 @@
         @EnableOAuth2Sso
         class OauthTutorialApplication {}
       ```
+
+## tutorial
+
+* [documentation](https://spring.io/guides/tutorials/spring-boot-oauth2/)
