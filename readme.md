@@ -1,6 +1,6 @@
 ## oauth2 tutorial
 
-* left off at WebSecurityConfigurer
+* left off at WebSecurityConfigurer - notes
 * the following dependencies are needed for oauth2 in spring boot 1.5.10
     * ```groovy
         buildscript {
