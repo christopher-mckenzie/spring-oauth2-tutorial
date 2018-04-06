@@ -32,7 +32,7 @@ import javax.servlet.Filter
 @SpringBootApplication
 @EnableOAuth2Client
 @EnableAuthorizationServer
-@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+@Order(6)
 class OauthTutorialApplication extends WebSecurityConfigurerAdapter {
 
 	@Autowired

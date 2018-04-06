@@ -55,6 +55,20 @@
     * in oauth2 terms this app is a client and uses auth code grant to obtain access tokens from facebook (the authorization server)
         * we then use the access token to get personal info from facebook
     * if redirects are successful a set-cookie header is visible with JSESSIONID by default
+* when extending WebSecurityConfigurerAdapter to the class that carries the annotation @EnableOAuth2Sso the annotation uses his to configure the security filter chain that carries the OAuth2 auth processor
+* when creating application with authorization server can verify tokens are generating by running the following
+    * ```cmd
+         $ curl acme:acmesecret@localhost:8080/oauth/token -d grant_type=client_credentials
+         {"access_token":"370592fd-b9f8-452d-816a-4fd5c6b4b8a6","token_type":"bearer","expires_in":43199,"scope":"read write"}
+      ```
+    * to get a token for a particular user use the random generated password from the logs on start up and run:
+        * ```cmd
+             $ curl acme:acmesecret@localhost:8080/oauth/token -d grant_type=password -d username=user -d password=...
+             {"access_token":"aa49e025-c4fe-4892-86af-15af2e6b72a2","token_type":"bearer","refresh_token":"97a9f978-7aad-4af7-9329-78ff2ce9962d","expires_in":43199,"scope":"read write"}
+          ```
+
+
+---
 ## tutorial
 
 * [documentation](https://spring.io/guides/tutorials/spring-boot-oauth2/)
