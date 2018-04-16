@@ -8,11 +8,7 @@ import java.security.Principal
 @RestController
 class OauthTutorialController {
 
-    @RequestMapping('/me')
-    Map<String, String> me(Principal principal){
-        return [name: principal.name]
-    }
-    @RequestMapping('/user')
+    @RequestMapping(['/user', '/me'])
     Map<String, String> user(Principal principal){
         return [name: principal.name]
     }

@@ -71,24 +71,12 @@ class OauthTutorialApplication extends WebSecurityConfigurerAdapter {
 
 	@Override
 	void configure(HttpSecurity http) throws Exception {
-		http.antMatcher('/**')
-				.authorizeRequests()
-				.antMatchers('/', '/login**', '/webjars/**')
-				.permitAll()
-				.anyRequest()
-				.authenticated()
-				.and()
-				.exceptionHandling()
-				.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint('/'))
-				.and()
-				.logout()
-				.logoutSuccessUrl('/')
-				.permitAll()
-				.and()
-				.csrf()
-				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-				.and()
-				.addFilterBefore(ssoFilter(), BasicAuthenticationFilter)
+		http.antMatcher("/**").authorizeRequests().antMatchers("/", "/login**", "/webjars/**").permitAll().anyRequest()
+				.authenticated().and().exceptionHandling()
+				.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/")).and().logout()
+				.logoutSuccessUrl("/").permitAll().and().csrf()
+				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
+				.addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
 	}
 
 	static void main(String[] args) {
